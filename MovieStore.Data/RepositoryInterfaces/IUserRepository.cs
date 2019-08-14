@@ -32,6 +32,7 @@ namespace MovieStore.Data.RepositoryInterfaces
         bool IsAddReview(int userId, int movieId);
         bool IsAddReview(string username, int movieId);
         User UpdateUser(User user);
+        UserDTO UpdateUser(UserDTO user);
         Review UpdateReview(Review review);
         int TotalPurchaseRecords(Expression<Func<Purchase, bool>> whereCondition);
         IEnumerable<User> GetAllPurchasedUser(PageDTO pageDTO);

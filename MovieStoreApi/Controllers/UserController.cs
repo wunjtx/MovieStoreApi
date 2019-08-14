@@ -193,10 +193,15 @@ namespace MovieStoreApi.Controllers
             {
                 return BadRequest("failed");
             }
-            if (_userService.UpdateUser(_mapper.Map<UserDTO, User>(userDTO)) != null)
+            //if (_userService.UpdateUser(_mapper.Map<UserDTO, User>(userDTO)) != null)
+            //    return Ok("success update user");
+            //else
+            //    return BadRequest("failed");
+            if (_userService.UpdateUser(userDTO) != null)
                 return Ok("success update user");
             else
                 return BadRequest("failed");
+
         }
 
         //200 OK api/user/review PUT User User updated his/her rating/review of a movie 

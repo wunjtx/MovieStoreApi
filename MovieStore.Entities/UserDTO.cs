@@ -1,10 +1,12 @@
-﻿using System;
+﻿using MovieStore.Entities;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MovieStore.Entities
 {
-    public class User
+    public class UserDTO
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -19,10 +21,5 @@ namespace MovieStore.Entities
         public DateTime? LastLoginDateTime { get; set; }
         public bool? IsLocked { get; set; }
         public int? AccessFailedCount { get; set; }
-        public ICollection<Review> Reviews { get; set; }
-        public ICollection<Purchase> Purchases { get; set; }
-        public ICollection<UserRole> UserRoles { get; set; }
-        public ICollection<Favorite> Favorites { get; set; }
-
     }
 }

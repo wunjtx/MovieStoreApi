@@ -13,7 +13,6 @@ using MovieStoreApi.DTO;
 namespace MovieStoreApi.Controllers
 {
     /*
-     * Crew CrewDTO api/crew/1 GET NO Get that crew info with movies he/she in 
      * 
      */
 

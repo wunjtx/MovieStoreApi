@@ -111,9 +111,38 @@ namespace MovieStore.Data.RepositoryImplementations
             return _movieStoreDbContext.Reviews.Any(r => r.MovieId == movieId && r.User.Email == username);
         }
 
-        public User UpdateUser(User user)
+        public UserDTO UpdateUser(UserDTO user)
         {
-            _movieStoreDbContext.Entry(user).State = EntityState.Modified;
+            var tempuser = GetById(user.Id);
+            var dbEntityEntry = _movieStoreDbContext.Attach(tempuser);
+            //foreach (var property in dbEntityEntry.OriginalValues.Properties)
+            //{
+            //    var original = dbEntityEntry.OriginalValues.GetValue<object>(property);
+            //    var current = dbEntityEntry.CurrentValues.GetValue<object>(property);
+            //    if (original != null && !original.Equals(current))
+            //        dbEntityEntry.Property(property.Name).IsModified = true;
+            //}
+            var properties = user.GetType().GetProperties();
+            foreach (var pi in properties)
+            {
+                if (pi.Name.ToLower()=="id")
+                {
+                    continue;
+                }
+                var newValue = user.GetType().GetProperty(pi.Name).GetValue(user);
+                var oldValue = typeof(User).GetProperty(pi.Name).GetValue(tempuser);
+
+                if (newValue is null && oldValue is null)
+                    continue;
+                else if ((newValue is null && !(oldValue is null))
+                        || (oldValue is null && !(newValue is null))
+                        || !newValue.Equals(oldValue))
+                    typeof(User).GetProperty(pi.Name).SetValue(tempuser, newValue);
+                    dbEntityEntry.Property(pi.Name).IsModified = true; 
+                
+            }
+            _movieStoreDbContext.SaveChanges();
+            //_movieStoreDbContext.Entry(user) = EntityState.Modified;
             return user;
         }
 
@@ -184,6 +213,11 @@ namespace MovieStore.Data.RepositoryImplementations
             }
 
             return query.OrderBy(o => o.Movie.Title).Skip((pageDTO.Index - 1) * pageDTO.PageSize).Take(pageDTO.PageSize).ToList();
+        }
+
+        public User UpdateUser(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

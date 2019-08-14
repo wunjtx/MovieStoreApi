@@ -49,6 +49,17 @@ namespace MovieStore.Services.ServiceImplementations
             return user;
         }
 
+        public User UpdateUser(User user, params Expression<Func<User, object>>[] updatedProperties)
+        {
+            if (!_userRepository.Exist(u => u.Id == user.Id))
+            {
+                return null;
+            }
+            _userRepository.Update(user, updatedProperties);
+            _userRepository.SaveChanges();
+            return user;
+        }
+
 
         public IEnumerable<User> GetTotalUsers()
         {
@@ -262,6 +273,11 @@ namespace MovieStore.Services.ServiceImplementations
         public int TotalPurchaseRecords(Expression<Func<Purchase, bool>> whereCondition)
         {
             return _userRepository.TotalPurchaseRecords(whereCondition);
+        }
+
+        public UserDTO UpdateUser(UserDTO user)
+        {
+            return _userRepository.UpdateUser(user);
         }
         #endregion
     }

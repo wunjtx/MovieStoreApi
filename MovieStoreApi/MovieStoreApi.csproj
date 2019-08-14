@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Compile Remove="DTO\RatingDTO.cs" />
+    <Compile Remove="DTO\UserDTO.cs" />
   </ItemGroup>
 
   <ItemGroup>

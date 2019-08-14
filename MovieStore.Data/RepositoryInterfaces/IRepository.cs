@@ -17,5 +17,7 @@ namespace MovieStore.Data.RepositoryInterfaces
         IEnumerable<T> GetByWhere(Expression<Func<T, bool>> whereLambda);
         int GetTotalRecords(Expression<Func<T, bool>> whereLambda = null);
         void SaveChanges();
+        void Update(T entity, params Expression<Func<T, object>>[] updatedProperties);
+        IQueryable<T> GetQueryableData(out int totalCount, Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null, int? skip = null, int? take = null);
     }
 }

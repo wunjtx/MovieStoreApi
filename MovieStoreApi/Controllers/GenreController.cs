@@ -37,14 +37,5 @@ namespace MovieStoreApi.Controllers
             var genreDto = _mapper.Map<IEnumerable<Genre>, IEnumerable<GenreDTO>>(genres);
             return Ok(genreDto);
         }
-
-        //[HttpGet]
-        //[Route("{id:int}")]
-        //public IActionResult GetGenreById(int id)
-        //{
-        //    var genre = _genreService.GetGenreById(id);
-        //    return Ok(genre);
-        //}
-
     }
 }

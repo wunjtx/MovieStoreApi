@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStoreApi", "MovieStoreApi\MovieStoreApi.csproj", "{D607A785-492E-44B5-B87E-7E077A65DDA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStoreApi", "MovieStoreApi\MovieStoreApi.csproj", "{D607A785-492E-44B5-B87E-7E077A65DDA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Services", "MovieStoreServices\MovieStore.Services.csproj", "{574E441C-4FF4-4073-87DC-B4AE1520FBBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Services", "MovieStoreServices\MovieStore.Services.csproj", "{574E441C-4FF4-4073-87DC-B4AE1520FBBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Data", "MovieStore.Data\MovieStore.Data.csproj", "{94B30DFF-ACD6-4A12-947C-C2639BEA7F2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Data", "MovieStore.Data\MovieStore.Data.csproj", "{94B30DFF-ACD6-4A12-947C-C2639BEA7F2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.UnitTest", "MovieStore.UnitTest\MovieStore.UnitTest.csproj", "{0A72C311-73CF-4385-945C-1FBB4009267B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.UnitTest", "MovieStore.UnitTest\MovieStore.UnitTest.csproj", "{0A72C311-73CF-4385-945C-1FBB4009267B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Entities", "MovieStore.Entities\MovieStore.Entities.csproj", "{4D78B77E-DA48-4DCE-8E6E-B5B854626CFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Entities", "MovieStore.Entities\MovieStore.Entities.csproj", "{4D78B77E-DA48-4DCE-8E6E-B5B854626CFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MovieStore.Dapper", "MovieStore.Dapper", "{0C8EA3C6-6D8D-4F83-935C-3E9AF2E95E7A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Dapper.Services", "MovieStore.Dapper.Services\MovieStore.Dapper.Services.csproj", "{3773A838-47FA-4E6B-8FF5-09F39146A098}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Dapper.Api", "MovieStore.Dapper.Api\MovieStore.Dapper.Api.csproj", "{9AF9EF8D-3695-4A5C-9E39-5A27E65B57F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +45,21 @@ Global
 		{4D78B77E-DA48-4DCE-8E6E-B5B854626CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D78B77E-DA48-4DCE-8E6E-B5B854626CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D78B77E-DA48-4DCE-8E6E-B5B854626CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3773A838-47FA-4E6B-8FF5-09F39146A098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3773A838-47FA-4E6B-8FF5-09F39146A098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3773A838-47FA-4E6B-8FF5-09F39146A098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3773A838-47FA-4E6B-8FF5-09F39146A098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AF9EF8D-3695-4A5C-9E39-5A27E65B57F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AF9EF8D-3695-4A5C-9E39-5A27E65B57F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AF9EF8D-3695-4A5C-9E39-5A27E65B57F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AF9EF8D-3695-4A5C-9E39-5A27E65B57F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3773A838-47FA-4E6B-8FF5-09F39146A098} = {0C8EA3C6-6D8D-4F83-935C-3E9AF2E95E7A}
+		{9AF9EF8D-3695-4A5C-9E39-5A27E65B57F6} = {0C8EA3C6-6D8D-4F83-935C-3E9AF2E95E7A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5E925DAF-45D6-4392-A12D-A84B3ECCC364}
