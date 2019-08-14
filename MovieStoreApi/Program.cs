@@ -38,6 +38,9 @@ namespace MovieStoreApi
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                //.ConfigureServices(services=>
+                    
+                //)
                 .UseStartup<Startup>()
                 .ConfigureLogging(logging =>
                 {

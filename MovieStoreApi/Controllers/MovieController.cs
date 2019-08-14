@@ -12,6 +12,7 @@ using MovieStore.Entities;
 //using MovieStore.Services.DTO;
 using MovieStore.Services.ServiceInterfaces;
 using MovieStoreApi.DTO;
+using MovieStoreApi.Infrastructure.Filter;
 using MovieStoreApi.Infrastructure.Log;
 using MovieStoreApi.Utilities;
 
@@ -19,6 +20,8 @@ namespace MovieStoreApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AddHeader("Author", "NJ")]
+    //[TypeFilter(typeof(AddHeaderResultServiceFilter), Arguments =new object []{1,"str2","str1"})]
     public class MovieController : ControllerBase
     {
         private ILoggerManager _logger;

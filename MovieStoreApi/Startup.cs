@@ -20,18 +20,21 @@ using MovieStore.Services.ServiceInterfaces;
 using MovieStoreApi.Infrastructure;
 using MovieStoreApi.Infrastructure.Automapper;
 using MovieStoreApi.Infrastructure.Error;
+using MovieStoreApi.Infrastructure.Filter;
 using MovieStoreApi.Infrastructure.Log;
 
 namespace MovieStoreApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IServiceProvider serviceProvider)
         {
             Configuration = configuration;
+            _serviceProvider = serviceProvider;
         }
 
         public IConfiguration Configuration { get; }
+        private readonly IServiceProvider _serviceProvider;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -42,17 +45,24 @@ namespace MovieStoreApi
                 options.UseSqlServer(Configuration.GetConnectionString("MovieStoreConnection"));
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSingleton<ILoggerManager, LoggerManager>();
+            
+            services.AddMvc(options =>
+            {
+                //add to all controller and action
+                //options.Filters.Add(new AddHeaderAttribute("GlobalAddHeader", "Result filter added to MvcOptions.Filters"));         // An instance
+                options.Filters.Add(new LogConstantFilter("GlobalAddHeader", services));
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             var mappingConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new AutoMapperProfile());
+            mc.AddProfile(new AutoMapperProfile());
             });
-
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            services.AddSingleton<ILoggerManager, LoggerManager>();
+            //Add service filters. use servicefilter attribute
+            //services.AddScoped<AddHeaderResultServiceFilter>(); //register in service, the life cycle will be managed by service.
 
             services.AddScoped<IRatingDTO, RatingDTO>();
 
@@ -72,15 +82,15 @@ namespace MovieStoreApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerManager logger)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerManager logger)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.ConfigureExceptionHandler(logger);
-            app.ConfigureCustomExceptionMiddleware();
+            //app.ConfigureExceptionHandler(logger); //extend UseExceptionHandler
+            //app.ConfigureCustomExceptionMiddleware(); //custom middleware
 
             app.UseCors(s=>s.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             
