@@ -12,6 +12,7 @@ using MovieStore.Entities;
 //using MovieStore.Services.DTO;
 using MovieStore.Services.ServiceInterfaces;
 using MovieStoreApi.DTO;
+using MovieStoreApi.Infrastructure.Log;
 using MovieStoreApi.Utilities;
 
 namespace MovieStoreApi.Controllers
@@ -20,16 +21,19 @@ namespace MovieStoreApi.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
+        private ILoggerManager _logger;
+
         private readonly IMapper _mapper;
         private readonly IMovieService _movieService;
         private readonly IConfiguration _configuration;
         private readonly IRatingDTO _ratingDTO;
-        public MovieController(IMovieService movieService, IMapper mapper, IConfiguration configuration, IRatingDTO ratingDTO)
+        public MovieController(IMovieService movieService, IMapper mapper, IConfiguration configuration, IRatingDTO ratingDTO, ILoggerManager logger)
         {
             _movieService = movieService;
             _mapper = mapper;
             _configuration = configuration;
             _ratingDTO = ratingDTO;
+            _logger = logger;
         }
 
         //MovieDTO api/movies? title = abc & page = 0 GET  NO Get Movies for Carousel
@@ -104,5 +108,18 @@ namespace MovieStoreApi.Controllers
             var movies = _movieService.GetMoviesByGenre(index);
             return Ok(movies);
         }
+
+        [HttpGet]
+        [Route("error")]
+        public IActionResult ErrorTesting()
+        {
+            _logger.LogInfo("Movie Logging Test");
+
+            int i1 = 1;
+            int i2 = 0;
+            int i3 = i1 / i2;
+            return Ok();
+        }
+
     }
 }

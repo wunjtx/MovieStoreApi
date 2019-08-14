@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieStoreApi.Infrastructure
+namespace MovieStoreApi.Infrastructure.Automapper
 {
     public class AutoMapperProfile:Profile
     {

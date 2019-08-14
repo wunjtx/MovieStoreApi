@@ -18,6 +18,9 @@ using MovieStore.Entities;
 using MovieStore.Services.ServiceImplementations;
 using MovieStore.Services.ServiceInterfaces;
 using MovieStoreApi.Infrastructure;
+using MovieStoreApi.Infrastructure.Automapper;
+using MovieStoreApi.Infrastructure.Error;
+using MovieStoreApi.Infrastructure.Log;
 
 namespace MovieStoreApi
 {
@@ -49,6 +52,8 @@ namespace MovieStoreApi
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
+            services.AddSingleton<ILoggerManager, LoggerManager>();
+
             services.AddScoped<IRatingDTO, RatingDTO>();
 
             services.AddScoped<IGenreRepository, GenreRepository>();
@@ -67,12 +72,15 @@ namespace MovieStoreApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerManager logger)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //app.ConfigureExceptionHandler(logger);
+            app.ConfigureCustomExceptionMiddleware();
 
             app.UseCors(s=>s.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             
