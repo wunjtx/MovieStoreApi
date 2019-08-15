@@ -21,7 +21,6 @@ namespace MovieStore.UnitTest
             //_mockMovieRepository.Verify(p => p.GetTotalRecords(m=>m.Title=="t1"), Times.Once);
             //Assert.AreEqual(3, ct);
             Assert.AreEqual(3, ct);
-            
         }
 
         private Mock<IMovieRepository> _mockMovieRepository = new Mock<IMovieRepository>();
@@ -57,6 +56,7 @@ namespace MovieStore.UnitTest
                {
                    return movies.AsQueryable().Where(expression).ToList().Count;
                });
+
             //_mockMovieRepository.Setup(m => m.GetTotalRecords(It.IsAny<Expression<Func<Movie, bool>>>()))
             //    .Returns((Expression<Func<Movie, bool>> expression) =>
             //    {
