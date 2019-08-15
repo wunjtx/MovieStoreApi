@@ -11,16 +11,13 @@
     <PackageReference Include="Moq" Version="4.12.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="NUnitTest\" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MovieStore.Data\MovieStore.Data.csproj" />
     <ProjectReference Include="..\MovieStore.Entities\MovieStore.Entities.csproj" />
-    <ProjectReference Include="..\MovieStoreServices\MovieStore.Services.csproj" />
+    <ProjectReference Include="..\MovieStore.Service\MovieStore.Services.csproj" />
   </ItemGroup>
 
 </Project>

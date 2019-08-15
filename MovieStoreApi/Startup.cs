@@ -61,7 +61,7 @@ namespace MovieStoreApi
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            //Add service filters. use servicefilter attribute
+            //Add service filters. use servicefilter attribute but service filter can not pass parameter
             //services.AddScoped<AddHeaderResultServiceFilter>(); //register in service, the life cycle will be managed by service.
 
             services.AddScoped<IRatingDTO, RatingDTO>();
@@ -89,7 +89,7 @@ namespace MovieStoreApi
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.ConfigureExceptionHandler(logger); //extend UseExceptionHandler
+            app.ConfigureExceptionHandler(logger); //extend UseExceptionHandler middleware
             //app.ConfigureCustomExceptionMiddleware(); //custom middleware
 
             app.UseCors(s=>s.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());

@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStoreApi", "MovieStoreApi\MovieStoreApi.csproj", "{D607A785-492E-44B5-B87E-7E077A65DDA5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Services", "MovieStoreServices\MovieStore.Services.csproj", "{574E441C-4FF4-4073-87DC-B4AE1520FBBB}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Data", "MovieStore.Data\MovieStore.Data.csproj", "{94B30DFF-ACD6-4A12-947C-C2639BEA7F2E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.UnitTest", "MovieStore.UnitTest\MovieStore.UnitTest.csproj", "{0A72C311-73CF-4385-945C-1FBB4009267B}"
@@ -19,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Dapper.Services"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Dapper.Api", "MovieStore.Dapper.Api\MovieStore.Dapper.Api.csproj", "{9AF9EF8D-3695-4A5C-9E39-5A27E65B57F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Services", "MovieStore.Service\MovieStore.Services.csproj", "{ED69A456-25C6-4824-BC02-8D724F78BE8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +29,6 @@ Global
 		{D607A785-492E-44B5-B87E-7E077A65DDA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D607A785-492E-44B5-B87E-7E077A65DDA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D607A785-492E-44B5-B87E-7E077A65DDA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{574E441C-4FF4-4073-87DC-B4AE1520FBBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{574E441C-4FF4-4073-87DC-B4AE1520FBBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{574E441C-4FF4-4073-87DC-B4AE1520FBBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{574E441C-4FF4-4073-87DC-B4AE1520FBBB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94B30DFF-ACD6-4A12-947C-C2639BEA7F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{94B30DFF-ACD6-4A12-947C-C2639BEA7F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94B30DFF-ACD6-4A12-947C-C2639BEA7F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,6 +49,10 @@ Global
 		{9AF9EF8D-3695-4A5C-9E39-5A27E65B57F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AF9EF8D-3695-4A5C-9E39-5A27E65B57F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AF9EF8D-3695-4A5C-9E39-5A27E65B57F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED69A456-25C6-4824-BC02-8D724F78BE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED69A456-25C6-4824-BC02-8D724F78BE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED69A456-25C6-4824-BC02-8D724F78BE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED69A456-25C6-4824-BC02-8D724F78BE8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,7 +21,8 @@ namespace MovieStoreApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [AddHeader("Author", "NJ")]
-    //[TypeFilter(typeof(AddHeaderResultServiceFilter), Arguments =new object []{1,"str2","str1"})]
+    [TypeFilter(typeof(AddHeaderResultServiceFilter), Arguments =new object []{1,"str2","str1"})] //if do not add to service can use typefilter
+    //[ServiceFilter(typeof(AddHeaderResultServiceFilter)] //servicefilter can not pass paramter
     public class MovieController : ControllerBase
     {
         private ILoggerManager _logger;
