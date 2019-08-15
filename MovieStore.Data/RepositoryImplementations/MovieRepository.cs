@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace MovieStore.Data.RepositoryImplementations
 {
@@ -61,6 +62,11 @@ namespace MovieStore.Data.RepositoryImplementations
                       movie = gp.Key,
                       rating = gp.Average(r => r.Rating)
                   }).OrderByDescending(a => a.rating).ToList();
+        }
+
+        public IEnumerable<Movie> GetSomeMovies(Expression<Func<Movie, bool>> expression)
+        {
+            return _movieStoreDbContext.Movies.Where(expression).Select(m => new Movie { Id = m.Id, Title = m.Title }).ToList();
         }
     }
 }

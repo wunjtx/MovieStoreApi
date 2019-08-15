@@ -125,5 +125,12 @@ namespace MovieStoreApi.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        [Route("getsomemovies/{id:int}")]
+        public IActionResult GetSomeMovies(int id)
+        {
+            var movies = _movieService.GetSomeMovies(id);
+            return Ok(movies);
+        }
     }
 }

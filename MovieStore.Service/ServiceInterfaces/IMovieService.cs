@@ -24,5 +24,6 @@ namespace MovieStore.Services.ServiceInterfaces
         IEnumerable<Movie> GetMoviesCarousel(string title = "", int count=6);
         IEnumerable<IRatingDTO> GetTopRatedMovies(int page = 1, int pageSize = 20, string titleFilter = "");
         Movie UpdateMovie(Movie movie);
+        IEnumerable<Movie> GetSomeMovies(int id);
     }
 }

@@ -83,5 +83,10 @@ namespace MovieStore.Services.ServiceImplementations
             _movieRepository.SaveChanges();
             return movie;
         }
+
+        public IEnumerable<Movie> GetSomeMovies(int id)
+        {
+            return _movieRepository.GetSomeMovies(m=>m.Id>id);
+        }
     }
 }
