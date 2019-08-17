@@ -12,7 +12,9 @@ namespace MovieStore.Data
         public MovieStoreDbContext(DbContextOptions<MovieStoreDbContext> options):base(options)
         {
         }
-        
+        //public MovieStoreDbContext():this(new DbContextOptions<MovieStoreDbContext>())
+        //{
+        //}
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Movie> Movies  { get; set; }
         public DbSet<MovieGenre> MovieGenres { get; set; }

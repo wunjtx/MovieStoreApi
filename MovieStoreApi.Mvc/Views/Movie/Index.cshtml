@@ -1,0 +1,106 @@
+﻿@model IEnumerable<MovieStore.Entities.Movie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Overview)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tagline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Budget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Revenue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImdbUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TmdbUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PosterUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BackdropUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OriginalLanguage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RunTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Overview)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tagline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Budget)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Revenue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImdbUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TmdbUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PosterUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BackdropUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OriginalLanguage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RunTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

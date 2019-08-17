@@ -279,6 +279,11 @@ namespace MovieStore.Services.ServiceImplementations
         {
             return _userRepository.UpdateUser(user);
         }
+
+        public object GetUserRoles(string email)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

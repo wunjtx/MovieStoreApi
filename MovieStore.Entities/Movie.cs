@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MovieStore.Entities
@@ -23,6 +24,5 @@ namespace MovieStore.Entities
         public ICollection<MovieGenre> MovieGenres { get; set; }
         public ICollection<MovieCast> MovieCast { get; set; }
         public ICollection<MovieCrew> MovieCrew { get; set; }
-        //public ICollection<MovieCrew> MovieCrew { get; set; }
     }
 }

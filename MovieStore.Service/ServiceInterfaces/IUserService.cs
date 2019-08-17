@@ -47,5 +47,6 @@ namespace MovieStore.Services.ServiceInterfaces
         Review UpdateReview(Review review);
         bool IsAddReview(string username, int movieId);
         bool IsAddReview(int userId, int movieId);
+        object GetUserRoles(string email);
     }
 }

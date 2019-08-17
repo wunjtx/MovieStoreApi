@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using MovieStore.Entities;
 //using MovieStore.Services.DTO;
 using MovieStore.Services.ServiceInterfaces;
@@ -27,10 +32,12 @@ namespace MovieStoreApi.Controllers
     {
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
-        public UserController(IUserService userService, IMapper mapper)
+        private readonly IConfiguration _config;
+        public UserController(IUserService userService, IMapper mapper, IConfiguration config)
         {
             _userService = userService;
             _mapper = mapper;
+            _config = config;
         }
 
         //
@@ -73,8 +80,43 @@ namespace MovieStoreApi.Controllers
             {
                 return BadRequest("Login Failed!!");
             }
-            return Ok(user);
+            var token = new { token = GenerateJWTToken(loginUser) };
+            return Ok(token);
         }
+
+        private string GenerateJWTToken(User user)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
+                new Claim("alias", user.FirstName[0] + user.LastName[0].ToString()),
+                new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName)
+            };
+
+            //var roles = _userService.GetUserRoles(user.Email).GetAwaiter().GetResult();
+            //foreach (var role in roles)
+                // make sure you have role with small "r" as Authorization looks for role with comma separated array
+            //    claims.Add(new Claim(ClaimTypes.Role, role.Role.Name));
+
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["TokenSettings:PrivateKey"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+            var expires = DateTime.Now.AddDays(Convert.ToDouble(_config["TokenSettings:ExpirationDays"]));
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = expires,
+                SigningCredentials = credentials,
+                Issuer = _config["TokenSettings:Issuer"],
+                Audience = _config["TokenSettings:Audience"]
+            };
+
+            var encodedJwt = new JwtSecurityTokenHandler().CreateToken(tokenDescriptor);
+            return new JwtSecurityTokenHandler().WriteToken(encodedJwt);
+        }
+
 
         //200 OK api/user/purchase POST User User made a movie purchase 
         [HttpPost]
@@ -95,6 +137,7 @@ namespace MovieStoreApi.Controllers
                 return BadRequest("failed!!");
         }
 
+
         [HttpGet]
         [Route("ispurchased/{userId}/{movieId:int}")]
         public IActionResult IsMoviePurchased(string username, int movieId)
@@ -103,6 +146,7 @@ namespace MovieStoreApi.Controllers
             return Ok(boo);
         }
 
+
         [HttpGet]
         [Route("isfavorited/{userId:int}/{movieId:int}")]
         public IActionResult IsMovieFavortied(int userId, int movieId)
@@ -110,6 +154,7 @@ namespace MovieStoreApi.Controllers
             var boo = _userService.IsMovieFavorited(userId, movieId);
             return Ok(boo);
         }
+
 
         //200 OK api/user/favorite POST User User added a movie to his Favorites
         [HttpPost]
@@ -127,6 +172,7 @@ namespace MovieStoreApi.Controllers
                 return BadRequest("failed favorite!!");
         }
 
+
         //UserDto  user pagination 
         [HttpGet]
         [Route("page/{index:int}")]
@@ -139,6 +185,7 @@ namespace MovieStoreApi.Controllers
             return Ok(pageSet);
         }
 
+
         //MovieDTO api/user/favorites GET User Get Logged in user's favorite movies 
         [HttpGet]
         [Route("favorites/{userId:int}")]
@@ -148,6 +195,7 @@ namespace MovieStoreApi.Controllers
             var movies = _mapper.Map<IEnumerable<Favorite>, IEnumerable<MovieDTO>>(favorites);
             return Ok(movies);
         }
+
 
         //MovieDTO api/users/mymovies GET User Movies purchased my particular User 
         [HttpGet]
@@ -159,6 +207,7 @@ namespace MovieStoreApi.Controllers
             return Ok(movies);
         }
 
+
         //ReviewDTO api/user/reviews GET User Get Logged in user's reviews/ratings of movies 
         [HttpGet]
         [Route("reviews/{userId:int}")]
@@ -168,6 +217,7 @@ namespace MovieStoreApi.Controllers
             var reviewDto = _mapper.Map<IEnumerable<Review>, IEnumerable<ReviewDTO>>(reviews);
             return Ok(reviewDto);
         }
+
 
         //200 OK api/user/review POST User User added a movie review/rating
         [HttpPost]
@@ -183,6 +233,7 @@ namespace MovieStoreApi.Controllers
             else
                 return BadRequest("failed");
         }
+
 
         //200 OK api/user/1 PUT User User updated his/her info 
         [HttpPut]
@@ -217,6 +268,18 @@ namespace MovieStoreApi.Controllers
                 return Ok("success update review");
             return BadRequest("failed");
         }
+
+        ////update partial information
+        //[HttpPatch]
+        //[Route("patch/{id:int}")]
+        //public IActionResult PatchUser([FromBody] UserPatchDTO patch)
+        //{
+        //    var tempuser = _userService.GetUserById(patch.Id);
+        //    tempuser.FirstName = patch.FirstName;
+        //    tempuser.Email = patch.Email;
+        //    _userService.SaveChanges();
+        //    return Ok();
+        //}
 
     }
 }
