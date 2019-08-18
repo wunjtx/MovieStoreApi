@@ -13,44 +13,31 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+           Title
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Overview)
+            Overview
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tagline)
+            Tagline
+        </th>
+
+        <th>
+            ImdbUrl
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Budget)
+            TmdbUrl
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Revenue)
+            PosterUrl
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ImdbUrl)
+            BackdropUrl
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TmdbUrl)
+            OriginalLanguage
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PosterUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BackdropUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OriginalLanguage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RunTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
+
         <th></th>
     </tr>
 
@@ -65,12 +52,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Tagline)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Budget)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Revenue)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.ImdbUrl)
         </td>
@@ -86,15 +68,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.OriginalLanguage)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RunTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MovieStore.Entities;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 
 namespace MovieStore.Data
@@ -11,6 +12,12 @@ namespace MovieStore.Data
     {
         public MovieStoreDbContext(DbContextOptions<MovieStoreDbContext> options):base(options)
         {
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //for .net framework settings
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MovieStoreConnection"].ConnectionString);            
+            //optionsBuilder.UseSqlServer(@"data source=.\SQL2016Developer;initial catalog=MovieStoreDb;integrated security=True;MultipleActiveResultSets=True;");
         }
         //public MovieStoreDbContext():this(new DbContextOptions<MovieStoreDbContext>())
         //{

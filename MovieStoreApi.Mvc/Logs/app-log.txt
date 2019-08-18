@@ -1,0 +1,12 @@
+2019-08-18 00:20:23.0612|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-18 00:20:25.9865|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-18 00:21:11.5086|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-18 16:34:27.9249|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-18 16:34:27.9249|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-18 16:35:15.3462|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-18 16:38:00.4021|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-18 16:38:03.6922|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-18 16:42:02.7404|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Log from ExceptionHandlingController: Attempted to divide by zero.
+2019-08-18 16:42:05.5599|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Log from ExceptionHandlingController: Attempted to divide by zero.
+2019-08-18 16:43:33.7659|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Log from module: Attempted to divide by zero.
+2019-08-18 16:45:35.6207|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Log from module: Attempted to divide by zero.

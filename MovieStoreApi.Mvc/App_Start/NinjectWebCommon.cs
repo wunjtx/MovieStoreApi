@@ -11,10 +11,12 @@ namespace Contoso.App_Start
     using System.Web;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+    using MovieStore.Data;
     using MovieStore.Data.RepositoryImplementations;
     using MovieStore.Data.RepositoryInterfaces;
     using MovieStore.Services.ServiceImplementations;
     using MovieStore.Services.ServiceInterfaces;
+    using MovieStoreMovieStoreApi.Mvc.Infrastructure.Log;
     using Ninject;
     using Ninject.Web.Common;
 
@@ -53,6 +55,8 @@ namespace Contoso.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+
+
                 return kernel;
             }
             catch
@@ -71,6 +75,7 @@ namespace Contoso.App_Start
             // Repositories
             kernel.Bind<IMovieRepository>().To<MovieRepository>().InRequestScope();
             kernel.Bind<IMovieService>().To<MovieService>().InRequestScope();
+            kernel.Bind<ILoggerManager>().To<LoggerManager>().InSingletonScope();
         }
     }
 }

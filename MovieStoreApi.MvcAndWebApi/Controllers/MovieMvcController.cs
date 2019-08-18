@@ -25,7 +25,8 @@ namespace MovieStoreApi.MvcAndWebApi.Controllers
         // GET: MovieMvc/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var movie = _movieServices.GetMovieById(id);
+            return View(movie);
         }
 
         // GET: MovieMvc/Create
@@ -75,7 +76,8 @@ namespace MovieStoreApi.MvcAndWebApi.Controllers
         // GET: MovieMvc/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var movie = _movieServices.GetMovieById(id);
+            return View(movie);
         }
 
         // POST: MovieMvc/Delete/5

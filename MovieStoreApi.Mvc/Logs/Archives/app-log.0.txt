@@ -1,0 +1,5 @@
+2019-08-17 19:28:23.6198|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-17 23:26:45.1394|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-17 23:40:35.3714|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-17 23:40:35.4114|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.
+2019-08-17 23:56:12.1157|ERROR|MovieStoreMovieStoreApi.Mvc.Infrastructure.Log.LoggerManager|Attempted to divide by zero.

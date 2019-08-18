@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using MovieStoreApi.Mvc.Infrastructure.Exception;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MovieStoreApi.Mvc
@@ -8,6 +9,7 @@ namespace MovieStoreApi.Mvc
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            //filters.Add(new ExceptionLoggingFilter());
         }
     }
 }

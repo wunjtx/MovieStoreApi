@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieStore.Services.ServiceInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,18 +8,21 @@ using System.Web.Http;
 
 namespace MovieStoreApi.WebApi.Controllers
 {
+    [RoutePrefix("movie")]
     public class MovieController : ApiController
     {
-        // GET: api/Movie
-        public IEnumerable<string> Get()
+        private readonly IMovieService _movieService;
+        public MovieController(IMovieService movieService)
         {
-            return new string[] { "value1", "value2" };
+            _movieService = movieService;
         }
-
-        // GET: api/Movie/5
-        public string Get(int id)
+        // GET: api/Movie
+        [HttpGet]
+        [Route("{id:int}")]
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            var movie = _movieService.GetMovieById(id);
+            return Ok(movie);
         }
 
         // POST: api/Movie
