@@ -1,4 +1,5 @@
 ﻿using MovieStore.Services.ServiceInterfaces;
+using MovieStoreApi.WebApi.Infrastructure.Exception;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,8 @@ using System.Web.Http;
 
 namespace MovieStoreApi.WebApi.Controllers
 {
-    [RoutePrefix("movie")]
+    //[RoutePrefix("movie")] //if add routePrefix the default route config will not work
+    //[ExceptionHandling]
     public class MovieController : ApiController
     {
         private readonly IMovieService _movieService;
@@ -18,16 +20,26 @@ namespace MovieStoreApi.WebApi.Controllers
         }
         // GET: api/Movie
         [HttpGet]
-        [Route("{id:int}")]
+        //[Route("{id:int}")]
         public IHttpActionResult Get(int id)
         {
-            var movie = _movieService.GetMovieById(id);
-            return Ok(movie);
+            //var movie = _movieService.GetMovieById(id);
+            //return Ok(movie);
+            int i1 = 1;
+            int i2 = 0;
+            int i3 = i1 / i2;
+            return Ok();
         }
 
         // POST: api/Movie
-        public void Post([FromBody]string value)
+        [HttpGet]
+        //[Route("errortest")]
+        public IHttpActionResult ErrorTest([FromBody]string value)
         {
+            int i1 = 1;
+            int i2 = 0;
+            int i3 = i1 / i2;
+            return Ok();
         }
 
         // PUT: api/Movie/5

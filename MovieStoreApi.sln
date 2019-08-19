@@ -27,7 +27,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStoreApi.Mvc", "MovieS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStoreApi.MvcAndWebApi", "MovieStoreApi.MvcAndWebApi\MovieStoreApi.MvcAndWebApi.csproj", "{B32C42C0-9F0C-4F80-93F4-CE845723AD64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStoreCoreMvc", "MovieStoreCoreMvc\MovieStoreCoreMvc.csproj", "{0D2FDDCF-EF8C-4905-8E20-3ECAEB4924F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStoreCoreMvc", "MovieStoreCoreMvc\MovieStoreCoreMvc.csproj", "{0D2FDDCF-EF8C-4905-8E20-3ECAEB4924F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStoreApi.OwinWebApi", "MovieStoreApi.OwinWebApi\MovieStoreApi.OwinWebApi.csproj", "{2565686A-1E63-42DA-8D51-1ECF3BDF11EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,10 @@ Global
 		{0D2FDDCF-EF8C-4905-8E20-3ECAEB4924F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D2FDDCF-EF8C-4905-8E20-3ECAEB4924F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D2FDDCF-EF8C-4905-8E20-3ECAEB4924F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2565686A-1E63-42DA-8D51-1ECF3BDF11EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2565686A-1E63-42DA-8D51-1ECF3BDF11EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2565686A-1E63-42DA-8D51-1ECF3BDF11EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2565686A-1E63-42DA-8D51-1ECF3BDF11EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{54606F0A-E773-4D73-8741-8EE476081DF9} = {C2EC6B3A-95D7-4EB0-AF0C-DC924C0DB742}
 		{83C7DC1F-686A-4D1F-86F7-BDB54AD4D902} = {C2EC6B3A-95D7-4EB0-AF0C-DC924C0DB742}
 		{B32C42C0-9F0C-4F80-93F4-CE845723AD64} = {C2EC6B3A-95D7-4EB0-AF0C-DC924C0DB742}
+		{2565686A-1E63-42DA-8D51-1ECF3BDF11EC} = {C2EC6B3A-95D7-4EB0-AF0C-DC924C0DB742}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5E925DAF-45D6-4392-A12D-A84B3ECCC364}

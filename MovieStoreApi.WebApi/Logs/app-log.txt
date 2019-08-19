@@ -1,0 +1,19 @@
+2019-08-18 20:30:43.8599|ERROR|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from ExceptionHandlingAttribute: Attempted to divide by zero.
+2019-08-18 21:29:40.4386|INFO|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from CustomEventHandler: https://localhost:44324/movie/errortest
+2019-08-18 21:50:25.6908|INFO|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|63701761825669868111 - Request: GET https://localhost:44324/movie/errortest
+{
+	"UserName":"nj",
+	"Password":"111111"
+	
+}
+2019-08-18 21:50:28.2743|INFO|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|63701761825669868111 - Response: GET https://localhost:44324/movie/errortest
+Internal Server Error
+2019-08-18 21:55:17.2471|ERROR|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from ExceptionHandlingAttribute: Attempted to divide by zero.
+2019-08-18 21:56:14.0891|ERROR|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from ExceptionHandlingAttribute: Attempted to divide by zero.
+2019-08-18 22:10:24.9752|INFO|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from CustomEventHandler: https://localhost:44324/api2/movie
+2019-08-18 22:45:24.3044|ERROR|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from MyApiControllerActionInvoker: Attempted to divide by zero.
+2019-08-18 22:45:24.4123|INFO|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from CustomEventHandler: https://localhost:44324/api2/movie
+2019-08-18 22:52:49.8106|ERROR|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from WebAPiExceptionHandler: Attempted to divide by zero.
+2019-08-18 22:52:49.8406|INFO|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from CustomEventHandler: https://localhost:44324/api2/movie
+2019-08-18 22:53:47.3019|ERROR|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from WebAPiExceptionHandler: Attempted to divide by zero.
+2019-08-18 22:53:47.3029|INFO|MovieStoreApi.WebApi.Infrastructure.Log.LoggerManager|Log from CustomEventHandler: https://localhost:44324/api2/movie

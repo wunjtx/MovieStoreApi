@@ -14,6 +14,7 @@ namespace Contoso.App_Start
     using MovieStore.Data.RepositoryInterfaces;
     using MovieStore.Services.ServiceImplementations;
     using MovieStore.Services.ServiceInterfaces;
+    using MovieStoreApi.WebApi.Infrastructure.Log;
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
@@ -71,6 +72,7 @@ namespace Contoso.App_Start
             // Repositories
             kernel.Bind<IMovieRepository>().To<MovieRepository>().InRequestScope();
             kernel.Bind<IMovieService>().To<MovieService>().InRequestScope();
+            kernel.Bind<ILoggerManager>().To<LoggerManager>().InSingletonScope();
         }
     }
 }

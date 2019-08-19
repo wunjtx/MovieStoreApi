@@ -264,6 +264,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Exception\ExceptionHandlingAttribute.cs" />
+    <Compile Include="Infrastructure\Exception\WebAPiExceptionHandler.cs" />
+    <Compile Include="Infrastructure\Handler\CustomEventHandler.cs" />
+    <Compile Include="Infrastructure\Handler\MessageHandler.cs" />
+    <Compile Include="Infrastructure\Invoker\MyApiControllerActionInvoker.cs" />
+    <Compile Include="Infrastructure\IOC\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\Log\ILoggerManager.cs" />
     <Compile Include="Infrastructure\Log\LoggerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -321,6 +327,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Logs\Archives\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
