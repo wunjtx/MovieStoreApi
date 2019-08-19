@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace MovieStoreApi.WebApi.Controllers
 {
-    //[RoutePrefix("movie")] //if add routePrefix the default route config will not work
+    [RoutePrefix("movie")] //if add routePrefix the default route config will not work
     //[ExceptionHandling]
     public class MovieController : ApiController
     {
@@ -18,17 +18,18 @@ namespace MovieStoreApi.WebApi.Controllers
         {
             _movieService = movieService;
         }
+
         // GET: api/Movie
         [HttpGet]
-        //[Route("{id:int}")]
+        [Route("{id:int}")]
         public IHttpActionResult Get(int id)
         {
-            //var movie = _movieService.GetMovieById(id);
-            //return Ok(movie);
-            int i1 = 1;
-            int i2 = 0;
-            int i3 = i1 / i2;
-            return Ok();
+            var movie = _movieService.GetMovieById(id);
+            return Ok(movie);
+            //int i1 = 1;
+            //int i2 = 0;
+            //int i3 = i1 / i2;
+            //return Ok();
         }
 
         // POST: api/Movie

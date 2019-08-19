@@ -231,6 +231,7 @@
     <Compile Include="Infrastructure\Exception\ExceptionLoggingHandlerAttribute.cs" />
     <Compile Include="Infrastructure\Exception\ExceptionHandlingController.cs" />
     <Compile Include="Infrastructure\Handler\ImgHandler.cs" />
+    <Compile Include="Infrastructure\Invoker\CustomController.cs" />
     <Compile Include="Infrastructure\IOC\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\Log\ILoggerManager.cs" />
     <Compile Include="Infrastructure\Log\LoggerManager.cs" />
@@ -327,7 +328,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>7924</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44321/</IISUrl>
+          <IISUrl>http://localhost:44321/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

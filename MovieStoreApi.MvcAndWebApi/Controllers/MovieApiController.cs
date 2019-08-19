@@ -9,7 +9,7 @@ using MovieStore.Entities;
 
 namespace MovieStoreApi.MvcAndWebApi.Controllers
 {
-    [RoutePrefix("movieapi")]
+    //[RoutePrefix("movieapi")]
     public class MovieApiController : ApiController
     {
         private readonly IMovieService _movieServices;
@@ -17,19 +17,14 @@ namespace MovieStoreApi.MvcAndWebApi.Controllers
         {
             _movieServices = movieServices;
         }
+
         // GET: api/MovieApi
         [HttpGet]
-        [Route("get")]
-        public IHttpActionResult Get()
+        //[Route("get")]
+        public IHttpActionResult Get(int id)
         {
             var movies = _movieServices.GetAllMovies(new PageDTO() { Index=1,PageSize=20 });
             return Ok(movies);
-        }
-
-        // GET: api/MovieApi/5
-        public string Get(int id)
-        {
-            return "value";
         }
 
         // POST: api/MovieApi
