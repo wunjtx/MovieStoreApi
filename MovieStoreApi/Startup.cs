@@ -25,6 +25,7 @@ using MovieStoreApi.Infrastructure.Automapper;
 using MovieStoreApi.Infrastructure.Error;
 using MovieStoreApi.Infrastructure.Filter;
 using MovieStoreApi.Infrastructure.Log;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace MovieStoreApi
 {
@@ -56,6 +57,11 @@ namespace MovieStoreApi
                 //options.Filters.Add(new AddHeaderAttribute("GlobalAddHeader", "Result filter added to MvcOptions.Filters"));         // An instance
                 options.Filters.Add(new LogConstantFilter("GlobalAddHeader", services));
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "MovieStore API", Version = "v1", Description = "MovieStore Api Docs" });
+            });
 
             var mappingConfig = new MapperConfiguration(mc =>
             {
@@ -111,6 +117,13 @@ namespace MovieStoreApi
             app.UseCors(s=>s.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             
             app.UseMvc();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+                c.RoutePrefix = string.Empty;
+            });
         }
     }
 }

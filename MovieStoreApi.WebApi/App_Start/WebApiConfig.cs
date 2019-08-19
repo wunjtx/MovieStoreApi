@@ -16,9 +16,13 @@ namespace MovieStoreApi.WebApi
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+
             //config.MessageHandlers.Add(new CustomEventHandler());
             //config.Filters.Add(new ExceptionHandlingAttribute());
-            config.Services.Replace(typeof(IExceptionHandler), new WebAPiExceptionHandler());
+            //config.Services.Replace(typeof(IExceptionHandler), new WebAPiExceptionHandler());
+
+            //SwaggerConfig.Register();
+            
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -32,6 +36,7 @@ namespace MovieStoreApi.WebApi
                 constraints: null,
                 handler: new CustomEventHandler(GlobalConfiguration.Configuration)
             );
+            
         }
     }
 }

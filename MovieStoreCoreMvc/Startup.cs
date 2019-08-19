@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MovieStore.Data;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace MovieStoreCoreMvc
 {
@@ -40,11 +41,24 @@ namespace MovieStoreCoreMvc
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "MovieStore API", Version = "v1" , Description = "MovieStore Api Docs"});
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+                c.RoutePrefix = string.Empty;
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -66,6 +80,7 @@ namespace MovieStoreCoreMvc
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }
